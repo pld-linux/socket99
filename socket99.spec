@@ -1,13 +1,13 @@
 Summary:	C99 wrapper library for the BSD sockets API
 Summary(pl.UTF-8):	Biblioteka C99 obudowująca API gniazd BSD
 Name:		socket99
-Version:	0
-%define	snap	20140923
-Release:	0.%{snap}.1
+Version:	0.2.0
+Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	https://github.com/silentbicycle/socket99/archive/master/%{name}.tar.gz
-# Source0-md5:	fc1a45bfe0a802aac24bdee78d51e6f4
+#Source0Download: https://github.com/silentbicycle/socket99/releases
+Source0:	https://github.com/silentbicycle/socket99/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	8fd589f5f8e29a5178a79a019f660886
 URL:		https://github.com/silentbicycle/socket99
 BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libtool
@@ -57,10 +57,10 @@ Static socket99 library.
 Statyczna biblioteka socket99.
 
 %prep
-%setup -q -n socket99-master
+%setup -q
 
 %build
-libtool --mode=compile %{__cc} %{rpmcflags} %{rpmcppflags} -Wall -c socket99.c
+libtool --mode=compile %{__cc} %{rpmcflags} %{rpmcppflags} -Wall -Wextra -std=c99 -D_GNU_SOURCE -c socket99.c
 libtool --mode=link %{__cc} %{rpmldflags} %{rpmcflags} -o libsocket99.la socket99.lo -rpath %{_libdir}
 
 %install
