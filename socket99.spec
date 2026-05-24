@@ -2,7 +2,7 @@ Summary:	C99 wrapper library for the BSD sockets API
 Summary(pl.UTF-8):	Biblioteka C99 obudowująca API gniazd BSD
 Name:		socket99
 Version:	0.2.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 #Source0Download: https://github.com/silentbicycle/socket99/releases
